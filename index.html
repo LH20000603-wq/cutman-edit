@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>無料動画編集サービス | カットマン</title>
+  <style>
+    :root {
+      --primary: #ff0050;
+      --secondary: #00f2fe;
+      --dark: #121212;
+      --card-bg: #1e1e1e;
+      --text: #ffffff;
+      --text-sub: #b0b0b0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+    body { background-color: var(--dark); color: var(--text); line-height: 1.6; padding-bottom: 60px; }
+    
+    .container { max-width: 600px; margin: 0 auto; padding: 20px 16px; }
+
+    /* ヘッダー・ヒーロー */
+    .hero { text-align: center; padding: 30px 10px; border-bottom: 1px solid #333; }
+    .badge { background: linear-gradient(45deg, var(--primary), var(--secondary)); color: #fff; display: inline-block; padding: 4px 16px; border-radius: 20px; font-weight: bold; font-size: 14px; margin-bottom: 12px; }
+    .hero h1 { font-size: 32px; font-weight: 900; margin-bottom: 8px; color: #fff; text-shadow: 0 2px 10px rgba(255,0,80,0.3); }
+    .hero p { color: var(--secondary); font-weight: bold; font-size: 14px; }
+
+    /* セクションカード */
+    .card { background: var(--card-bg); border-radius: 16px; padding: 20px; margin-top: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); border: 1px solid #2a2a2a; }
+    .card h2 { font-size: 18px; color: var(--secondary); margin-bottom: 12px; border-bottom: 1px solid #333; padding-bottom: 8px; }
+    .card p { font-size: 14px; color: #ddd; margin-bottom: 10px; }
+    
+    .notice-box { background: rgba(255, 0, 80, 0.1); border-left: 4px solid var(--primary); padding: 12px; border-radius: 4px; margin-top: 12px; font-size: 13px; color: #ff88a5; }
+
+    /* 応募方法手順リスト */
+    ol.steps { padding-left: 20px; font-size: 14px; color: #ddd; }
+    ol.steps li { margin-bottom: 8px; }
+
+    .warning { font-size: 12px; color: #aaa; background: #252525; padding: 10px; border-radius: 8px; margin-top: 12px; }
+
+    /* CTAボタン */
+    .btn-apply { display: block; width: 100%; background: linear-gradient(45deg, var(--primary), #e00045); color: #fff; text-align: center; font-size: 18px; font-weight: bold; padding: 16px; border-radius: 30px; text-decoration: none; margin-top: 24px; box-shadow: 0 4px 15px rgba(255,0,80,0.4); transition: transform 0.2s; cursor: pointer; border: none; }
+    .btn-apply:hover { transform: scale(1.02); }
+
+    /* 応募フォーム画面 */
+    #formSection { display: none; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 13px; font-weight: bold; margin-bottom: 6px; color: #eee; }
+    .form-group label .req { color: var(--primary); margin-left: 4px; }
+    .form-group label .opt { color: #888; margin-left: 4px; font-size: 11px; }
+    .form-group input, .form-group textarea { width: 100%; padding: 12px; background: #2a2a2a; border: 1px solid #444; border-radius: 8px; color: #fff; font-size: 14px; outline: none; }
+    .form-group input:focus, .form-group textarea:focus { border-color: var(--secondary); }
+    .form-group textarea { resize: vertical; height: 100px; }
+
+    .submit-btn { width: 100%; background: var(--secondary); color: #000; font-size: 16px; font-weight: bold; padding: 14px; border: none; border-radius: 30px; cursor: pointer; margin-top: 10px; }
+    .back-btn { display: inline-block; color: var(--text-sub); font-size: 13px; text-decoration: none; margin-bottom: 16px; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- 1. トップページ（案内画面） -->
+    <div id="mainSection">
+      <div class="hero">
+        <span class="badge">期間限定</span>
+        <h1>無料動画編集</h1>
+        <p>※10月下旬より有料化予定</p>
+      </div>
+
+      <!-- プロフィール・想い -->
+      <div class="card">
+        <h2>ごあいさつ</h2>
+        <p>はじめまして！TikTokで活動している<strong>「カットマン」</strong>です！</p>
+        <p>今回、なぜ無料で動画編集をお引き受けしようと思ったかというと、僕自身もTikTokを運用する身として、<strong>「同じ目標を追いかけるクリエイター仲間を応援したい！」</strong>という強い気持ちがあるからです。</p>
+        <p>また、自分自身がフォロワー10万人を目指す上でも、多くの方の動画を編集させていただくことが素晴らしい経験値になると考えています。</p>
+        
+        <div class="notice-box">
+          ⚠️ <strong>10月下旬以降は有料サービスへ移行予定です。</strong>無料で試せるこの機会にぜひご応募ください！
+        </div>
+      </div>
+
+      <!-- 応募方法・注意点 -->
+      <div class="card">
+        <h2>📌 応募方法 & ご注意</h2>
+        <ol class="steps">
+          <li>カットマンのTikTokアカウントをフォロー</li>
+          <li>下記「応募はこちらから」を押して必要事項を送信</li>
+        </ol>
+
+        <div class="warning">
+          <p><strong>【選考・ご連絡について】</strong></p>
+          <p>・ご応募多数の場合、「編集したい！」と感じた動画から優先的にお引き受けするため、ご希望に添えない場合があります。</p>
+          <p>・ご要望は可能な範囲で対応いたします（未記入の場合はこちらにお任せとなります）。</p>
+          <p>・採用となった方には<strong>TikTokのDMにてご連絡</strong>いたします。</p>
+          <p style="margin-top: 8px; color: #ff8888;">※極端に無理なご要望やクレーム等をされる場合、今後のご依頼をお断りする可能性がございます。マナーを守ってお互い気持ちよくSNSを盛り上げていきましょう！🔥</p>
+        </div>
+      </div>
+
+      <!-- フォームへ飛ぶボタン -->
+      <button class="btn-apply" onclick="showForm()">👉 応募はこちらから</button>
+    </div>
+
+    <!-- 2. 応募フォーム画面 -->
+    <div id="formSection">
+      <span class="back-btn" onclick="showMain()">← トップに戻る</span>
+      
+      <div class="card">
+        <h2>📝 応募フォーム</h2>
+        
+        <!-- あなた専用のFormspree URLを設定済み -->
+        <form action="https://formspree.io/f/xrpgdwlw" method="POST" enctype="multipart/form-data">
+          
+          <div class="form-group">
+            <label>1. あなたのTikTokアカウントURL <span class="req">[必須]</span></label>
+            <input type="url" name="account_url" placeholder="https://www.tiktok.com/@your_id" required>
+          </div>
+
+          <div class="form-group">
+            <label>2. フォロー画面のスクリーンショット <span class="req">[必須]</span></label>
+            <input type="file" name="screenshot" accept="image/*" required>
+          </div>
+
+          <div class="form-group">
+            <label>3. 編集してほしい動画素材 <span class="req">[必須]</span></label>
+            <input type="file" name="video_file" accept="video/*" required>
+          </div>
+
+          <div class="form-group">
+            <label>4. どのような編集をしてほしいか <span class="opt">(任意・500字以内)</span></label>
+            <textarea name="request_detail" maxlength="500" placeholder="テロップの雰囲気やカット割りなど、ご希望があればご記入ください。未記入の場合はこちらにお任せとなります。"></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">送信する</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // ページ切り替え処理
+    function showForm() {
+      document.getElementById('mainSection').style.display = 'none';
+      document.getElementById('formSection').style.display = 'block';
+      window.scrollTo(0, 0);
+    }
+
+    function showMain() {
+      document.getElementById('formSection').style.display = 'none';
+      document.getElementById('mainSection').style.display = 'block';
+      window.scrollTo(0, 0);
+    }
+  </script>
+</body>
+</html>
