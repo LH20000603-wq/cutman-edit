@@ -6,54 +6,207 @@
   <title>無料動画編集サービス | カットマン</title>
   <style>
     :root {
-      --primary: #ff0050;
-      --secondary: #00f2fe;
-      --dark: #121212;
-      --card-bg: #1e1e1e;
-      --text: #ffffff;
-      --text-sub: #b0b0b0;
+      --primary-blue: #1877f2;
+      --secondary-blue: #0052cc;
+      --accent-yellow: #ffcc00;
+      --bg-light: #f4f7fa;
+      --card-bg: #ffffff;
+      --text-main: #333333;
+      --text-sub: #666666;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
-    body { background-color: var(--dark); color: var(--text); line-height: 1.6; padding-bottom: 60px; }
     
-    .container { max-width: 600px; margin: 0 auto; padding: 20px 16px; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+    body { background-color: var(--bg-light); color: var(--text-main); line-height: 1.6; padding-bottom: 60px; }
+    
+    .container { max-width: 650px; margin: 0 auto; }
 
-    /* ヘッダー・ヒーロー */
-    .hero { text-align: center; padding: 30px 10px; border-bottom: 1px solid #333; }
-    .badge { background: linear-gradient(45deg, var(--primary), var(--secondary)); color: #fff; display: inline-block; padding: 4px 16px; border-radius: 20px; font-weight: bold; font-size: 14px; margin-bottom: 12px; }
-    .hero h1 { font-size: 32px; font-weight: 900; margin-bottom: 8px; color: #fff; text-shadow: 0 2px 10px rgba(255,0,80,0.3); }
-    .hero p { color: var(--secondary); font-weight: bold; font-size: 14px; }
-    .hero .limit-tag { background: rgba(0, 242, 254, 0.15); border: 1px solid var(--secondary); color: var(--secondary); font-size: 13px; font-weight: bold; padding: 6px 12px; border-radius: 8px; display: inline-block; margin-top: 10px; }
+    /* ヒーローヘッダー (クラウドワークス風の青背景) */
+    .hero {
+      background: linear-gradient(135deg, #1e5799 0%, #2989d8 50%, #207cca 100%);
+      color: #fff;
+      text-align: center;
+      padding: 36px 20px 40px;
+      border-radius: 0 0 24px 24px;
+      box-shadow: 0 4px 15px rgba(0,82,204,0.15);
+      position: relative;
+    }
+    
+    .hero-profile {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      margin: 0 auto 12px;
+      object-fit: cover;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      background-color: #fff;
+    }
+
+    .badge-wrap { margin-bottom: 8px; }
+    .badge {
+      background: var(--accent-yellow);
+      color: #000;
+      font-weight: bold;
+      font-size: 13px;
+      padding: 4px 14px;
+      border-radius: 20px;
+      display: inline-block;
+    }
+
+    .hero h1 {
+      font-size: 28px;
+      font-weight: 900;
+      margin-bottom: 6px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+    .hero p.sub-title { font-size: 14px; color: #e0f0ff; font-weight: bold; }
+    
+    .limit-tag {
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      color: #fff;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 6px 14px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-top: 12px;
+    }
+
+    .main-content { padding: 0 16px; }
 
     /* セクションカード */
-    .card { background: var(--card-bg); border-radius: 16px; padding: 20px; margin-top: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); border: 1px solid #2a2a2a; }
-    .card h2 { font-size: 18px; color: var(--secondary); margin-bottom: 12px; border-bottom: 1px solid #333; padding-bottom: 8px; }
-    .card p { font-size: 14px; color: #ddd; margin-bottom: 10px; }
-    
-    .notice-box { background: rgba(255, 0, 80, 0.1); border-left: 4px solid var(--primary); padding: 12px; border-radius: 4px; margin-top: 12px; font-size: 13px; color: #ff88a5; }
+    .card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 24px 20px;
+      margin-top: 20px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      border: 1px solid #e1e8ed;
+    }
 
-    /* 応募方法手順リスト */
-    ol.steps { padding-left: 20px; font-size: 14px; color: #ddd; }
-    ol.steps li { margin-bottom: 8px; }
+    .card h2 {
+      font-size: 18px;
+      color: var(--secondary-blue);
+      margin-bottom: 14px;
+      border-bottom: 2px solid #edf2f7;
+      padding-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
 
-    .warning { font-size: 12px; color: #aaa; background: #252525; padding: 10px; border-radius: 8px; margin-top: 12px; }
+    .card p { font-size: 14px; color: #444; margin-bottom: 12px; line-height: 1.7; }
 
-    /* CTAボタン */
-    .btn-apply { display: block; width: 100%; background: linear-gradient(45deg, var(--primary), #e00045); color: #fff; text-align: center; font-size: 18px; font-weight: bold; padding: 16px; border-radius: 30px; text-decoration: none; margin-top: 24px; box-shadow: 0 4px 15px rgba(255,0,80,0.4); transition: transform 0.2s; cursor: pointer; border: none; }
-    .btn-apply:hover { transform: scale(1.02); }
+    .notice-box {
+      background: #fff8e6;
+      border-left: 4px solid #ffae00;
+      padding: 12px 14px;
+      border-radius: 6px;
+      margin-top: 12px;
+      font-size: 13px;
+      color: #8a6300;
+      font-weight: bold;
+    }
+
+    /* かんたん3ステップイラスト表示 (クラウドワークス風) */
+    .steps-header { text-align: center; margin-bottom: 18px; }
+    .steps-header span { font-size: 13px; font-weight: bold; color: var(--primary-blue); letter-spacing: 1px; }
+    .steps-header h3 { font-size: 20px; font-weight: bold; color: #222; }
+
+    .steps-container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .step-item {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+      position: relative;
+    }
+
+    .step-badge {
+      background: var(--secondary-blue);
+      color: #fff;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 3px 12px;
+      border-radius: 12px;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+
+    .step-title { font-weight: bold; font-size: 15px; color: #1a202c; }
+
+    /* 注意事項ボックス */
+    .warning-box {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      border-radius: 10px;
+      padding: 14px;
+      margin-top: 16px;
+      font-size: 12px;
+      color: #991b1b;
+      line-height: 1.6;
+    }
+
+    /* 応募ボタン */
+    .btn-apply {
+      display: block;
+      width: 100%;
+      background: linear-gradient(180deg, #ff9900 0%, #ff7700 100%);
+      color: #fff;
+      text-align: center;
+      font-size: 19px;
+      font-weight: bold;
+      padding: 18px;
+      border-radius: 35px;
+      text-decoration: none;
+      margin: 28px 0;
+      box-shadow: 0 4px 15px rgba(255, 119, 0, 0.35);
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .btn-apply:hover { transform: translateY(-2px); }
 
     /* 応募フォーム画面 */
-    #formSection { display: none; }
-    .form-group { margin-bottom: 16px; }
-    .form-group label { display: block; font-size: 13px; font-weight: bold; margin-bottom: 6px; color: #eee; }
-    .form-group label .req { color: var(--primary); margin-left: 4px; }
-    .form-group label .opt { color: #888; margin-left: 4px; font-size: 11px; }
-    .form-group input, .form-group textarea { width: 100%; padding: 12px; background: #2a2a2a; border: 1px solid #444; border-radius: 8px; color: #fff; font-size: 14px; outline: none; }
-    .form-group input:focus, .form-group textarea:focus { border-color: var(--secondary); }
-    .form-group textarea { resize: vertical; height: 100px; }
+    #formSection { display: none; padding: 20px 16px; }
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; font-size: 13px; font-weight: bold; margin-bottom: 6px; color: #333; }
+    .form-group label .req { color: #e53e3e; margin-left: 4px; font-size: 11px; background: #fff5f5; padding: 2px 6px; border-radius: 4px; border: 1px solid #feb2b2; }
+    .form-group label .opt { color: #718096; margin-left: 4px; font-size: 11px; }
+    
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      background: #fff;
+      border: 1px solid #cbd5e0;
+      border-radius: 8px;
+      color: #2d3748;
+      font-size: 14px;
+      outline: none;
+    }
+    .form-group input:focus, .form-group textarea:focus { border-color: var(--primary-blue); box-shadow: 0 0 0 3px rgba(24,119,242,0.15); }
+    .form-group textarea { resize: vertical; height: 110px; }
 
-    .submit-btn { width: 100%; background: var(--secondary); color: #000; font-size: 16px; font-weight: bold; padding: 14px; border: none; border-radius: 30px; cursor: pointer; margin-top: 10px; }
-    .back-btn { display: inline-block; color: var(--text-sub); font-size: 13px; text-decoration: none; margin-bottom: 16px; cursor: pointer; }
+    .submit-btn {
+      width: 100%;
+      background: var(--primary-blue);
+      color: #fff;
+      font-size: 17px;
+      font-weight: bold;
+      padding: 16px;
+      border: none;
+      border-radius: 35px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(24,119,242,0.3);
+    }
+    .back-btn { display: inline-block; color: var(--text-sub); font-size: 13px; text-decoration: none; margin-bottom: 16px; cursor: pointer; font-weight: bold; }
   </style>
 </head>
 <body>
@@ -62,69 +215,90 @@
 
     <!-- 1. トップページ（案内画面） -->
     <div id="mainSection">
+      
+      <!-- ヘッダーエリア -->
       <div class="hero">
-        <span class="badge">期間限定</span>
-        <h1>無料動画編集</h1>
-        <p>※10月下旬より有料化予定</p>
-        <div class="limit-tag">📱 ショート動画（縦型動画）限定サービス</div>
-      </div>
-
-      <!-- プロフィール・想い -->
-      <div class="card">
-        <h2>ごあいさつ</h2>
-        <p>はじめまして！TikTokで活動している<strong>「カットマン」</strong>です！</p>
-        <p>今回、なぜ無料で動画編集をお引き受けしようと思ったかというと、僕自身もTikTokを運用する身として、<strong>「同じ目標を追いかけるクリエイター仲間を応援したい！」</strong>という強い気持ちがあるからです。</p>
-        <p>また、自分自身がフォロワー10万人を目指す上でも、多くの方の動画を編集させていただくことが素晴らしい経験値になると考えています。</p>
+        <!-- アップロードしたアイコン画像 -->
+        <img src="IMG_1319.jpeg" alt="カットマン" class="hero-profile" onerror="this.style.display='none'">
         
-        <div class="notice-box">
-          ⚠️ <strong>10月下旬以降は有料サービスへ移行予定です。</strong>無料で試せるこの機会にぜひご応募ください！
-        </div>
+        <div class="badge-wrap"><span class="badge">期間限定キャンペーン</span></div>
+        <h1>無料動画編集</h1>
+        <p class="sub-title">※10月下旬より有料化予定</p>
+        <div class="limit-tag">📱 ショート動画（縦型）限定サービス</div>
       </div>
 
-      <!-- 応募方法・注意点 -->
-      <div class="card">
-        <h2>📌 応募方法 & ご注意</h2>
-        <ol class="steps">
-          <li>カットマンのTikTokアカウントをフォロー</li>
-          <li>下記「応募はこちらから」を押して必要事項を送信</li>
-        </ol>
+      <div class="main-content">
 
-        <div class="warning">
-          <p><strong>【対象動画・選考について】</strong></p>
-          <p>・<strong>当サービスは「ショート動画（TikTok / Shorts / Reels等の縦型動画）」限定となります。</strong></p>
-          <p>・ご応募多数の場合、「編集したい！」と感じた動画から優先的にお引き受けするため、ご希望に添えない場合があります。</p>
-          <p>・ご要望は可能な範囲で対応いたします（未記入の場合はこちらにお任せとなります）。</p>
-          <p>・採用となった方には<strong>TikTokのDMにてご連絡</strong>いたします。</p>
-          <p style="margin-top: 8px; color: #ff8888;">※極端に無理なご要望やクレーム等をされる場合、今後のご依頼をお断りする可能性がございます。マナーを守ってお互い気持ちよくSNSを盛り上げていきましょう！🔥</p>
+        <!-- ごあいさつカード -->
+        <div class="card">
+          <h2>💬 ごあいさつ</h2>
+          <p>はじめまして！TikTokで活動している<strong>「カットマン」</strong>です！</p>
+          <p>今回、なぜ無料で動画編集をお引き受けしようと思ったかというと、僕自身もTikTokを運用する身として、<strong>「同じ目標を追いかけるクリエイター仲間を応援したい！」</strong>という強い気持ちがあるからです。</p>
+          <p>また、自分自身がフォロワー10万人を目指す上でも、多くの方の動画を編集させていただくことが素晴らしい経験値になると考えています。</p>
+          
+          <div class="notice-box">
+            ⚠️ 10月下旬以降は有料サービスへ移行予定です。無料で試せるこの機会にぜひご応募ください！
+          </div>
         </div>
-      </div>
 
-      <!-- フォームへ飛ぶボタン -->
-      <button class="btn-apply" onclick="showForm()">👉 応募はこちらから</button>
+        <!-- かんたんステップカード -->
+        <div class="card">
+          <div class="steps-header">
+            <span>\ かんたん、3ステップ！ /</span>
+            <h3>ご依頼・応募の流れ</h3>
+          </div>
+
+          <div class="steps-container">
+            <div class="step-item">
+              <span class="step-badge">STEP 01</span>
+              <div class="step-title">カットマンのTikTokをフォロー</div>
+            </div>
+            <div class="step-item">
+              <span class="step-badge">STEP 02</span>
+              <div class="step-title">応募フォームから動画素材を送信</div>
+            </div>
+            <div class="step-item">
+              <span class="step-badge">STEP 03</span>
+              <div class="step-title">TikTokのDMにてご連絡・納品</div>
+            </div>
+          </div>
+
+          <div class="warning-box">
+            <strong>【選考・ご注意事項】</strong><br>
+            ・当サービスは「ショート動画（TikTok / Shorts / Reels等の縦型動画）」限定です。<br>
+            ・人数が多い場合、編集したい動画順に引き受けるため、利用できない場合があります。<br>
+            ・ご要望は可能な範囲で対応します（未記入時はお任せとなります）。<br>
+            ・無理な要望やクレーム等は次回以降お断りする場合があります。ともにSNSを盛り上げていきましょう！
+          </div>
+        </div>
+
+        <!-- 応募ボタン -->
+        <button class="btn-apply" onclick="showForm()">👉 応募はこちらから</button>
+
+      </div>
     </div>
 
     <!-- 2. 応募フォーム画面 -->
     <div id="formSection">
-      <span class="back-btn" onclick="showMain()">← トップに戻る</span>
+      <span class="back-btn" onclick="showMain()">← トップページに戻る</span>
       
       <div class="card">
         <h2>📝 応募フォーム</h2>
         
-        <!-- あなた専用のFormspree URLを設定済み -->
         <form action="https://formspree.io/f/xrpgdwlw" method="POST" enctype="multipart/form-data">
           
           <div class="form-group">
-            <label>1. あなたのTikTokアカウントURL <span class="req">[必須]</span></label>
+            <label>1. あなたのTikTokアカウントURL <span class="req">必須</span></label>
             <input type="url" name="account_url" placeholder="https://www.tiktok.com/@your_id" required>
           </div>
 
           <div class="form-group">
-            <label>2. フォロー画面のスクリーンショット <span class="req">[必須]</span></label>
+            <label>2. フォロー画面のスクリーンショット <span class="req">必須</span></label>
             <input type="file" name="screenshot" accept="image/*" required>
           </div>
 
           <div class="form-group">
-            <label>3. 編集してほしい動画素材（※ショート動画のみ） <span class="req">[必須]</span></label>
+            <label>3. 編集してほしい動画素材（※ショート動画限定） <span class="req">必須</span></label>
             <input type="file" name="video_file" accept="video/*" required>
           </div>
 
@@ -133,7 +307,7 @@
             <textarea name="request_detail" maxlength="500" placeholder="テロップの雰囲気やカット割りなど、ご希望があればご記入ください。未記入の場合はこちらにお任せとなります。"></textarea>
           </div>
 
-          <button type="submit" class="submit-btn">送信する</button>
+          <button type="submit" class="submit-btn">上記の内容で送信する</button>
         </form>
       </div>
     </div>
@@ -141,7 +315,6 @@
   </div>
 
   <script>
-    // ページ切り替え処理
     function showForm() {
       document.getElementById('mainSection').style.display = 'none';
       document.getElementById('formSection').style.display = 'block';
@@ -156,3 +329,4 @@
   </script>
 </body>
 </html>
+
