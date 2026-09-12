@@ -23,6 +23,7 @@
     .badge { background: linear-gradient(45deg, var(--primary), var(--secondary)); color: #fff; display: inline-block; padding: 4px 16px; border-radius: 20px; font-weight: bold; font-size: 14px; margin-bottom: 12px; }
     .hero h1 { font-size: 32px; font-weight: 900; margin-bottom: 8px; color: #fff; text-shadow: 0 2px 10px rgba(255,0,80,0.3); }
     .hero p { color: var(--secondary); font-weight: bold; font-size: 14px; }
+    .hero .limit-tag { background: rgba(0, 242, 254, 0.15); border: 1px solid var(--secondary); color: var(--secondary); font-size: 13px; font-weight: bold; padding: 6px 12px; border-radius: 8px; display: inline-block; margin-top: 10px; }
 
     /* セクションカード */
     .card { background: var(--card-bg); border-radius: 16px; padding: 20px; margin-top: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); border: 1px solid #2a2a2a; }
@@ -65,6 +66,7 @@
         <span class="badge">期間限定</span>
         <h1>無料動画編集</h1>
         <p>※10月下旬より有料化予定</p>
+        <div class="limit-tag">📱 ショート動画（縦型動画）限定サービス</div>
       </div>
 
       <!-- プロフィール・想い -->
@@ -88,7 +90,8 @@
         </ol>
 
         <div class="warning">
-          <p><strong>【選考・ご連絡について】</strong></p>
+          <p><strong>【対象動画・選考について】</strong></p>
+          <p>・<strong>当サービスは「ショート動画（TikTok / Shorts / Reels等の縦型動画）」限定となります。</strong></p>
           <p>・ご応募多数の場合、「編集したい！」と感じた動画から優先的にお引き受けするため、ご希望に添えない場合があります。</p>
           <p>・ご要望は可能な範囲で対応いたします（未記入の場合はこちらにお任せとなります）。</p>
           <p>・採用となった方には<strong>TikTokのDMにてご連絡</strong>いたします。</p>
@@ -121,7 +124,7 @@
           </div>
 
           <div class="form-group">
-            <label>3. 編集してほしい動画素材 <span class="req">[必須]</span></label>
+            <label>3. 編集してほしい動画素材（※ショート動画のみ） <span class="req">[必須]</span></label>
             <input type="file" name="video_file" accept="video/*" required>
           </div>
 
